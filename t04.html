@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>background</title>
+    <style>
+      .bg01 {
+        height: 500px;
+        background: #f00 url(./trm01/img/main_slider01.jpg) no-repeat center
+          top/cover;
+      }
+
+      /*.bg01 { (위에껀 축약형, 이건 풀어쓴것.)
+      height: 500px; 
+        background-color: #f00;
+        background-image: url(./trm01/img/main_slider01.jpg);
+      ---url 검색할때 ./로 찾는다.
+      background-repeat: no-repeat;*/
+      /* ---repeat 반복하는것 x,y,z 방향으로 반복도 가능 
+      background-position-y: center;
+      background-position-x: center;
+      background-size: cover;
+    */
+    </style>
+  </head>
+  <body>
+    <div class="bg01">001</div>
+  </body>
+</html>

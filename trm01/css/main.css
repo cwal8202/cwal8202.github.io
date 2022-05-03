@@ -91,3 +91,232 @@
 .main_slider .slick-dots button {
   display: none;
 }
+
+.main_banner {
+  transform: translateY(-50%);
+}
+
+.main_banner figure {
+  /* display: flex; 하면 자식들에게 블록을 부여한다. */
+  display: flex;
+  flex: 1;
+  text-align: center;
+  color: #fff;
+  justify-content: center;
+  /* 박스 가운데로 하는거 margin: 0 auto도 있는데 이건
+  좀 애매하다하시는데 설명 찾아보기!! */
+  align-items: center;
+  height: 250px;
+}
+
+.main_banner figure:nth-child(1) {
+  background: #da544b;
+}
+.main_banner figure:nth-child(2) {
+  background: #f4cb4f;
+}
+.main_banner figure:nth-child(3) {
+  background: #337689;
+}
+.main_banner figure:nth-child(4) {
+  background: #6fa476;
+}
+
+/* a테그는 블록이 아니라서 크기조절 안된다 */
+.main_banner figure a {
+  display: flex;
+  align-items: flex-end;
+  width: 100px;
+  height: 140px;
+  font-size: 13px;
+}
+
+.main_banner figure:nth-child(1) a {
+  background: url(../img/icon_set_w.png) no-repeat 0 0;
+  transition: 0.5s;
+  /* 왜 no-repeat 뒤에 0 0 이지?? */
+  /* transition은 아이콘 움직임 시간 조정(부드럽게or빨리 할수있다.) */
+}
+/* no-repeat 뒤에 숫자는 좌우, 상하? */
+.main_banner figure:nth-child(1):hover a {
+  background: url(../img/icon_set_w.png) no-repeat -300px 0;
+}
+
+.main_banner figure:hover {
+  transform-origin: center bottom;
+  transform: scaleY(1.1);
+  transition: 0.5s;
+}
+
+.main_banner figure:nth-child(2) a {
+  background: url(../img/icon_set_w.png) no-repeat -100px 0;
+}
+.main_banner figure:nth-child(3) a {
+  background: url(../img/icon_set_w.png) no-repeat -200px 0;
+}
+.main_banner figure:nth-child(4) a {
+  background: url(../img/icon_set_w.png) no-repeat -300px 0;
+}
+
+/* figure strong 이런거 같은경우는 테그로 불러오는거라 (띄어쓰기).으로 불러오지 않고 (띄어쓰기)로만 불러올수 있다. */
+.main_banner figure strong {
+}
+
+.main_banner .customer {
+  /* class로 이름 지어진 애들만 (띄어쓰기).class이름으로 불러올수 있다. */
+  /* position는 위에 display그 다음 위에 순서가 보통이다.  */
+  position: relative;
+  flex: 2;
+  text-align: right;
+  background: #ddd;
+  padding: 50px 30px 0 0;
+}
+
+.main_banner .customer a {
+  display: block;
+  margin: 0 0 15px 0;
+  font-size: 38px;
+  background: linear-gradient(to right bottom, #f00, #fff);
+  color: transparent;
+  -webkit-background-clip: text;
+  /* 그라데이션으로 색깔넣는거 숙제 */
+  font-weight: 700;
+}
+
+.main_banner .customer i {
+  /* 볼륨 키우는건 padding */
+  position: absolute;
+  /* top: -29px인 이유 알아야함. */
+  top: -29px;
+  right: 30px;
+  color: #fff;
+  background: #da544b;
+  font-size: 38px;
+  padding: 10px;
+  border-radius: 50%;
+  /* border-radius도 상우하좌가 있다.
+  픽셀로 할경우 예)10px을 주면 반지름 10px의 호를 말하는 것이다. */
+}
+
+/*그라데이션 효과 주는중
+앞 숫자가 50% 넘으면 그라데이션 적용 안됨.*/
+.main_link {
+  padding: 0 0 100px 0;
+  background: linear-gradient(to top, #f7f7f7 70%, transparent 30%);
+}
+
+/* inline block은 텍스트 성질을 가지고 있다. */
+.main_link h2 {
+  text-align: center;
+  margin: 0 0 50px 0;
+}
+
+/* h2와 before사이 절대 띄우면 안됨. 붙여서 :: */
+.main_link h2::before {
+  content: "";
+  display: inline-block;
+  width: 80px;
+  height: 1px;
+  background: #f00;
+  vertical-align: middle;
+  margin: 0 10px;
+}
+
+.main_link h2::after {
+  content: "";
+  display: inline-block;
+  width: 80px;
+  height: 1px;
+  background: #f00;
+  vertical-align: middle;
+  margin: 0 10px;
+}
+
+.main_link .container {
+  gap: 30px;
+}
+
+/*포지션 기준을 못잡아서 more가 안나왔다.*/
+.main_link figure {
+  position: relative;
+  border-radius: 50px 0 0 0;
+  overflow: hidden;
+}
+/* 이미지 굴곡줄땐 figure에서 건드린다. img에서 건드려도 적용이 안된다 */
+
+.main_link img {
+  width: 100%;
+  margin: 0 0 30px 0;
+}
+
+.main_link h3 {
+  font-size: 23px;
+  margin: 0 0 30px 0;
+}
+
+/* ::after, before은 읽을수 있는 영역이 아니라 중요한 글자는 안쓰는게 좋다
+효과= 글자 앞 뒤로 자동으로 다른것들을 부여할 수 있다.*/
+/* 바로 밑에 코드는 글자 밑 줄 그어진거 만드는 과정
+줄을 긋는게 아닌 아주 작은 박스를 만들었다! */
+.main_link h3::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 1px;
+  background: #f00;
+  margin: 15px 0;
+}
+
+/*이거 오류있다뭐냐...? main_link figure에서 position-relative
+즉 기준을 안잡아줬다.*/
+.main_link figure a {
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: rgba(243, 202, 79, 0.5);
+  /*색깔 투명하게 해줌*/
+  text-align: center;
+  line-height: 60px;
+  color: #fff;
+  border-radius: 50%;
+  text-transform: uppercase;
+  /*이건 뭔지 모름*/
+}
+/* 노트산스 코리아는 짝수픽셀보다 홀수픽셀로 건드리는게 더 예쁘다! */
+
+.main_link figure a:hover {
+  background: rgba(243, 202, 79, 1);
+  border-radius: 30%;
+}
+
+.footer {
+  border-top: 1px solid #ddd;
+  padding: 100px 0;
+  text-align: center;
+}
+
+.footer ul {
+  margin: 10px 0;
+}
+
+.footer ul > li {
+  display: inline-block;
+}
+
+/*여기 못따라갔다ㅠㅠ*/
+.footer ul > li ~ li::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 13px;
+  background: #333;
+  margin: 0 15px;
+  vertical-align: middle;
+}
+
+.footer address {
+  font-size: normal;
+}
+/* 터치하면 늘어나는것도 숙제 */

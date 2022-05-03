@@ -1,0 +1,13 @@
+@import url(https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css);
+li::before {
+  content: "\ea12";
+  font-family: xeicon !important;
+}
+li::after {
+  content: "\e9e3";
+  font-family: xeicon !important;
+}
+
+li {
+  list-style: none;
+}

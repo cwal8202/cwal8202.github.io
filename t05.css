@@ -7,7 +7,7 @@ li::after {
   content: "\e9e3";
   font-family: xeicon !important;
 }
-}
+
 li {
   list-style: none;
 }

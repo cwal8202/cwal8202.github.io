@@ -62,6 +62,7 @@
   font-size: 60px;
   font-weight: 900;
   margin: 0 0 30px 0;
+  line-height: 80px;
   background: linear-gradient(to right top, #0a96ba, #032777, #333333);
   color: transparent;
   -webkit-background-clip: text;

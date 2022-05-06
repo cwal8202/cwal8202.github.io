@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메뉴 오르락내리락</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-size: inherit;
+        font-weight: inherit;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      h1 {
+        text-align: center;
+        line-height: 100px;
+        font-size: 30px;
+      }
+      nav {
+        position: relative;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        z-index: 999;
+      }
+      nav > ul {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        text-align: center;
+      }
+      nav > ul > li {
+        position: relative;
+        line-height: 40px;
+      }
+      nav > ul > li ul {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        height: 0;
+        /* 높이가 0이기때문에 없어짐 */
+        overflow: hidden;
+        transition: 0.5s;
+        background: #ff0;
+        /* z-index는 아직 이해를 못했다. */
+        z-index: 999;
+      }
+      nav:hover > ul > li ul {
+        height: 160px;
+        /* height를 auto로 하면 transition이 안먹힌다. */
+      }
+
+      nav::before {
+        /*에러가 났었다. 높이 조절이 안먹히는 before의 문제였다. */
+        position: absolute;
+        top: 40px;
+        left: 0;
+        content: "asdsad";
+        width: 100%;
+        height: 0;
+        background: #ff0;
+        transition: 0.5s;
+      }
+      nav:hover::before {
+        height: 180px;
+      }
+
+      /* 배경에 높이 0에서 마우스 갖다대면 높이 180px로 나타나게 한다. li들도 똑같이 높이 0이었다가 160px정도 내려온다. 이게 적용될려면 overflow:hidden을 해서 높이 0일땐 아에 안보이게 하는게 중요하다. z-index는 이해못했다. position과 관련이 있어보인다. */
+      .visual {
+        /* position : relative; 를 넣으면 뒤에 작성한게 덮어쓴다. */
+        position: relative;
+        background: #333;
+        color: #fff;
+        text-align: center;
+        line-height: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>다단메뉴</h1>
+    <nav>
+      <!-- emmet으로 한것: ul>li*5>a{menu0$}+ul>li*4>a{menu0$}  -->
+      <ul>
+        <li>
+          <a href="">menu01</a>
+          <ul>
+            <li><a href="">smenu01</a></li>
+            <li><a href="">smenu02</a></li>
+            <li><a href="">smenu03</a></li>
+            <li><a href="">smenu04</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="">menu02</a>
+          <ul>
+            <li><a href="">smenu01</a></li>
+            <li><a href="">smenu02</a></li>
+            <li><a href="">smenu03</a></li>
+            <li><a href="">smenu04</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="">menu03</a>
+          <ul>
+            <li><a href="">smenu01</a></li>
+            <li><a href="">smenu02</a></li>
+            <li><a href="">smenu03</a></li>
+            <li><a href="">smenu04</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="">menu04</a>
+          <ul>
+            <li><a href="">smenu01</a></li>
+            <li><a href="">smenu02</a></li>
+            <li><a href="">smenu03</a></li>
+            <li><a href="">smenu04</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="">menu05</a>
+          <ul>
+            <li><a href="">smenu01</a></li>
+            <li><a href="">smenu02</a></li>
+            <li><a href="">smenu03</a></li>
+            <li><a href="">smenu04</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <section class="visual">slogan</section>
+  </body>
+</html>

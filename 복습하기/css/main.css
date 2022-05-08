@@ -1,0 +1,462 @@
+/* TOP BANNER 헤더부분의 위치 즉 레이아웃 작업을 함. */
+.container {
+  display: flex;
+  /* display: flex;는 박스의 높이를 컨텐츠 높이만큼 줄인다or 맞춘다. */
+  width: 1200px;
+  margin: 0 auto;
+  /* margin 0 auto;는 박스를 중앙으로 이동시킨다. */
+}
+/* 이 코드에선 박스의 크기를 1200px로 맞추고 박스높이를 flex시켜 박스들 사이의 틈을 없앴고 margin을 이용해서 박스를 중간으로 뒀다.*/
+
+.header .top_banner {
+  border-bottom: 1px solid #ddd;
+  /* 배너박스 밑에 줄을 그었다. */
+  line-height: 40px;
+  /* 제일 위 박스 높이를 설정했다. 원래보다 더 높아짐. */
+}
+
+.header .top_banner span {
+  margin: 0 0 0 auto;
+  /* span의 글이 오른쪽으로 붙여졌다. */
+}
+
+.header .top_banner a {
+  /* 제일위 배너의 오른쪽 아이콘 */
+  margin: 0 0 0 10px;
+  padding: 0 10px;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+.header .gnb {
+  position: relative;
+  /* 위의 메뉴들을 오른쪽으로 옮기는 작업을 함. */
+  margin: 0 0 0 auto;
+  right: 9px;
+}
+
+.header .gnb > ul {
+  display: flex;
+  /* ul안의 li박스들 즉 상단의 메뉴들이 세로로 배열되어 있었는데 가로로 배열되게 만들었다. */
+  gap: 30px;
+  line-height: 90px;
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.header .gnb > ul > li {
+  position: relative;
+}
+
+.header .gnb > ul > li > ul {
+  position: absolute;
+  height: 0;
+  overflow: hidden;
+  font-size: 15px;
+  z-index: 999;
+  transition: 0.5s;
+}
+
+.header .gnb:hover > ul > li > ul {
+  height: 360px;
+}
+
+.header .gnb::before {
+  position: absolute;
+  content: "";
+  width: 800px;
+  right: -9px;
+  height: 300px;
+  transition: 0.5s;
+}
+
+.header .gnb:hover::before {
+  background: #ddd;
+  transition: 0s;
+}
+
+.header .gnb::after {
+  position: absolute;
+  content: "";
+  background: #f7f7f7;
+  width: 800px;
+  right: -9px;
+  height: 0px;
+  transition: 0.5s;
+  z-index: 998;
+}
+
+.header .gnb:hover::after {
+  height: 360px;
+}
+
+/* TOP BANNER의 위치를 다 정리했다. */
+
+/* 메인 비주얼 시작 */
+
+.main_visual {
+  /* 뒷 배경 삽입하는 작업을 함. */
+  position: relative;
+  height: 600px;
+  background: url(../img/main_slider01.jpg) no-repeat center top/cover;
+}
+
+.main_visual .slogan {
+  position: absolute;
+  top: 100px;
+  right: 600px;
+}
+.main_slider {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1200px;
+}
+
+.main_slider h3 {
+  font-size: 60px;
+  font-weight: 900;
+  margin: 0 0 30px 0;
+  line-height: 80px;
+  /* line-height는 줄간격이다. */
+  background: linear-gradient(to right top, #0a96ba, #032777, #333333);
+  color: transparent;
+  -webkit-background-clip: text;
+}
+
+.main_slider strong {
+  display: block;
+  margin: 0 0 20px 0;
+  color: #0dcaf0;
+}
+
+.main_slider .slick-dots {
+  padding: 30px 0 0 0;
+  /* 글이랑 점들이 붙어있어서 30px정도 분리해놓았다. */
+}
+
+.main_slider .slick-dots li {
+  display: inline-block;
+  margin: 0 10px 0 0;
+  width: 80px;
+  height: 4px;
+  background: #ddd;
+}
+
+.main_slider .slick-dots li.slick-active {
+  background: #fd7e14;
+}
+
+.main_slider .slick-dots button {
+  /* slick-dots의 1,2,3 버튼박스를 없앴다. */
+  display: none;
+}
+
+.main_banner {
+  transform: translateY(-30%);
+}
+
+/*높이를 200px로 지정하기 전엔 customer박스도 같이 늘어났지만 높이 설정 후 figure만 늘어난다. flex-end를 하기전엔 figure에 마우스 갖다대면 밑으로 내려갔지만 설정 이후 마우스 갖다대면 위로 늘어난다.*/
+.main_banner .container {
+  height: 200px;
+  align-items: flex-end;
+}
+
+.main_banner figure {
+  display: flex;
+  flex: 1;
+  text-align: center;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  transition: 0.5s;
+}
+
+.main_banner figure:hover {
+  height: calc(100% + 20px);
+}
+
+.main_banner figure:nth-child(1) {
+  background: #da544b;
+}
+.main_banner figure:nth-child(2) {
+  background: #f4cb4f;
+}
+.main_banner figure:nth-child(3) {
+  background: #337689;
+}
+.main_banner figure:nth-child(4) {
+  background: #6fa476;
+}
+
+/* display flex랑 align-items: flex-end 이게 뭐냐..? */
+.main_banner figure a {
+  display: flex;
+  align-items: flex-end;
+  width: 100px;
+  height: 140px;
+  font-size: 13px;
+}
+
+.main_banner figure:nth-child(1) a {
+  background: url(../img/icon_set_w.png) no-repeat 0 0;
+}
+
+.main_banner figure:nth-child(2) a {
+  background: url(../img/icon_set_w.png) no-repeat -100px 0;
+}
+.main_banner figure:nth-child(3) a {
+  background: url(../img/icon_set_w.png) no-repeat -200px 0;
+}
+.main_banner figure:nth-child(4) a {
+  background: url(../img/icon_set_w.png) no-repeat -300px 0;
+}
+
+.main_banner .customer {
+  /* main_banner figure보다 2배가 크기때문에 flex: 2; 라고 함.*/
+  position: relative;
+  flex: 2;
+  text-align: right;
+  background: #ddd;
+  padding: 50px 30px 0 0;
+  height: 200px;
+}
+
+.main_banner .customer a {
+  display: block;
+  margin: 0 0 15px 0;
+  font-size: 38px;
+  background: linear-gradient(to left bottom, #333333, #032777, #fff);
+  color: transparent;
+  -webkit-background-clip: text;
+  font-weight: 700;
+}
+
+.main_banner .customer i {
+  position: absolute;
+  /* top, right등은 margin top 의 축약형인가?? */
+  top: -29px;
+  right: 30px;
+  color: #fff;
+  background: #da544b;
+  /* 아이콘도 font-size로 키운다는거 중요함! */
+  font-size: 38px;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.main_link {
+  padding: 0 0 50px 0;
+  background: linear-gradient(to top, #f7f7f7 70%, transparent 30%);
+}
+
+.main_link h2 {
+  position: relative;
+  text-align: center;
+  margin: 0 0 50px 0;
+}
+
+.main_link h2::before {
+  position: absolute;
+  content: "";
+  right: 990px;
+  bottom: -1px;
+  box-sizing: border-box;
+  border: 1px solid #333;
+  background: rgb(253, 253, 47, 0.5);
+  width: 15px;
+  height: 15px;
+}
+
+.main_link h2::after {
+  position: absolute;
+  content: "";
+  /* 1.어떻게 하면 중앙에 있는 박스를 쉽게 글자 양옆으로 오게 할수 있을까 or 
+  2.딱 15px만큼만 왼쪽이나 오른쪽으로 옮길수 있을까? */
+  left: 990px;
+  bottom: -1px;
+  box-sizing: border-box;
+  border: 1px solid #333;
+  background: rgb(253, 253, 47, 0.5);
+  width: 15px;
+  height: 15px;
+}
+
+.main_link .container {
+  gap: 30px;
+}
+
+.main_link figure {
+  /*overflow는 콘텐츠 요소가 너무 클때 잘라내거나 스크롤바노출하거나 크기 그대로 노출하는 방법있다. */
+  position: relative;
+  border-radius: 50px 0 0 0;
+  overflow: hidden;
+}
+
+.main_link figure .inbox {
+  /* 분명 overflow:hidden을 했음에도 아래 크기가 커졌다. 그 이유는 이미지의 크기보다 박스의 크기가
+  더 컸기 때문이다. 그래서 .inbox의 박스높이를 이미지의 높이인 238px로 지정한 후 실행하니 더이상 아래로 커지지 않았다.*/
+  height: 238px;
+  margin: 0 0 38px 0;
+  overflow: hidden;
+}
+
+.main_link figure img:hover {
+  /* 처음에 figure .inbox:hover를 했었다. 그 결과 계속 이미지가 overflow:hidden을 했음에도 크기가 계속 커졌다. img에 hover를 주니 inbox의 크기를 넘어가면 hidden이 먹혔다.*/
+  transform: scale(2);
+}
+
+.main_link figure a {
+  top: 50%;
+  line-height: 60px;
+  text-align: center;
+  width: 60px;
+  right: 0;
+  position: absolute;
+  background: rgba(243, 202, 79, 0.5);
+  color: #fff;
+  border-radius: 50%;
+  transition: 0.5s;
+  text-transform: uppercase;
+}
+
+.main_link figure a:hover {
+  border-radius: 30%;
+  background: rgba(243, 202, 79, 1);
+}
+
+.main_link img {
+  /* 왜 width: 100%를 쓰면  */
+  width: 100%;
+  margin: 0 0 30px 0;
+}
+
+.main_link h3 {
+  font-size: 23px;
+  margin: 0 0 30px 0;
+}
+
+/* 장바구니 담기 시작 */
+
+.main_link2 {
+  padding: 0 0 50px 0;
+  background: linear-gradient(to top, #f7f7f7 70%, transparent 30%);
+}
+
+.main_link2 h2 {
+  position: relative;
+  text-align: center;
+  margin: 50px 0 50px 0;
+}
+
+.main_link2 .container {
+  gap: 30px;
+}
+
+.main_link2 figure {
+  position: relative;
+  border-radius: 50px 0 0 0;
+  overflow: hidden;
+}
+
+.main_link2 figure .inbox {
+  height: 238px;
+  margin: 0 0 38px 0;
+  overflow: hidden;
+}
+
+.main_link2 figure a {
+  top: 60%;
+  line-height: 60px;
+  text-align: center;
+  width: 60px;
+  right: -60px;
+  position: absolute;
+  background: rgba(243, 202, 79, 0.5);
+  color: #fff;
+  border-radius: 50%;
+  transition: 0.5s;
+  text-transform: uppercase;
+}
+
+.main_link2 figure:hover a {
+  right: 30px;
+}
+
+.main_link2 figure a:hover {
+  border-radius: 30%;
+  background: rgba(243, 202, 79, 1);
+}
+
+.main_link2 img {
+  /* 왜 width: 100%를 쓰면  */
+  width: 100%;
+  margin: 0 0 30px 0;
+}
+
+.main_link3 {
+  padding: 0 0 50px 0;
+  background: linear-gradient(to top, #f7f7f7 70%, transparent 30%);
+}
+
+.main_link3 h2 {
+  text-align: center;
+  margin: 50px 0 50px 0;
+}
+
+.main_link3 .container {
+  gap: 30px;
+}
+
+.main_link3 figure {
+  position: relative;
+  height: 238px;
+}
+
+.main_link3 figure .inbox {
+  height: 238px;
+  margin: 0 0 38px 0;
+  overflow: hidden;
+}
+
+.main_link3 figure .inbox::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 10px solid #333;
+  border-left: 10px solid #333;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.25);
+  transition: 0.5s;
+  opacity: 0;
+}
+.main_link3 figure .inbox::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-bottom: 10px solid #333;
+  border-right: 10px solid #333;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.25);
+  transition: 0.5s;
+  opacity: 0;
+}
+
+.main_link3 figure .inbox:hover::before,
+.main_link3 figure .inbox:hover::after {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+
+.main_link3 img {
+  width: 100%;
+}

@@ -1,0 +1,329 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap");
+
+@import url("https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css");
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.top_banner {
+  padding: 25px 0;
+  background: #f1f1f1;
+}
+
+/* *******이거 엄청 중요함******
+.container에 전부 다 flex해버리면 top_banner의 형태가 망가진다.
+그러므로 top_banner .container에만 block을 준다!!
+다른 container들도 형태를 보니 flex를 다쓰는게 좋아보였다. */
+.top_banner .container {
+  display: block;
+}
+
+.top_banner h2 {
+  /* 이처럼 폰트를 한줄에만 적용시킬수 있다. */
+  font-family: "Nanum Myeongjo", serif;
+  font-size: 30px;
+  margin: 0 0 10px 0;
+}
+
+.top_banner p {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.top_banner a {
+  padding: 2px 15px 4px 15px;
+  border: 1px solid #333;
+  margin: 0 0 0 20px;
+}
+
+.top_banner i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  background: #333;
+  /* border-radius: 50%; */
+  color: #f1f1f1;
+  cursor: pointer;
+}
+
+.header .gnb {
+  /* padding이나 margin으로 간격 벌리면 귀찮아 진다. 왜...? */
+  line-height: 100px;
+}
+
+/*  justify-content: space-between;
+} 이거 꼭 검색해서 공부하기. width에 맞게 딱 넓어졌다. */
+.header .gnb nav {
+  margin: 0 0 0 auto;
+}
+
+.header .gnb form {
+  margin: 0 0 0 50px;
+}
+
+nav > ul {
+  display: flex;
+  /* gap은 인터넷익스플로어에서 안먹힌다. */
+}
+
+nav > ul > li {
+}
+
+/* li~li 하면 제일 처음 꺼에 적용이 안된다. 이거 신기하네 */
+nav > ul > li ~ li::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 13px;
+  background: #ddd;
+  margin: 0 20px;
+}
+
+/* #은 id를 불러올때 쓰는것 */
+#searchForm input[type="text"] {
+  border: none;
+  border-bottom: 1px solid #ddd;
+  /* 검색창에서 글자 입력할때 테두리 없어진다. outline: none; */
+  outline: none;
+  padding: 5px 0;
+}
+
+#searchForm button {
+  border: none;
+  outline: none;
+  background: transparent;
+  /* icon 아이콘도 font-size로 키운다 저번에도 배웠지만 까먹기 쉽다. 기억하자. */
+  font-size: 30px;
+}
+
+.main_visual figure {
+  position: relative;
+  height: 600px;
+}
+
+.main_visual .itm01 {
+  background: url(../img/mainvisual01.jpg) no-repeat center center/cover;
+}
+.main_visual .itm02 {
+  background: url(../img/mainvisual02.jpg) no-repeat center center/cover;
+}
+.main_visual .itm03 {
+  background: url(../img/mainvisual03.jpg) no-repeat center center/cover;
+}
+
+.main_visual .container {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+.main_visual figure h3 {
+  font-size: 60px;
+  font-weight: 900;
+  margin: 0 0 20px 0;
+  text-shadow: 0 0 2px #000;
+}
+
+.main_visual figure.itm02 h3 {
+  color: #333;
+  text-shadow: 0 0 2px #fff;
+}
+
+.main_visual figure p {
+  font-size: 13px;
+  font-weight: 300;
+  margin: 0 0 20px 0;
+}
+
+.main_visual figure.itm02 p {
+  color: #333;
+}
+
+.main_visual figure a {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 300;
+  text-align: center;
+  border: 1px solid #fff;
+  background: #333;
+  padding: 5px 20px 8px 20px;
+}
+
+.main_visual figure h3 {
+  transform: translateY(100px);
+  opacity: 0;
+}
+
+.main_visual figure.on h3 {
+  transform: translateY(0);
+  transition: 0.5s;
+  opacity: 1;
+}
+
+.main_visual figure p {
+  transform: translateY(100px);
+  opacity: 0;
+}
+
+.main_visual figure.on p {
+  transform: translateY(0);
+  transition: 0.5s 0.5s;
+  opacity: 1;
+}
+.main_visual figure a {
+  transform: translateY(100px);
+  opacity: 0;
+}
+
+.main_visual figure.on a {
+  transform: translateY(0);
+  transition: 0.5s 1s;
+  opacity: 1;
+}
+
+.main_visual .slick-dots {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  /* display: flex;
+  난 왜 적용이 되는거지...? */
+}
+
+.main_visual .slick-dots li {
+  display: inline-block;
+  width: 80px;
+  height: 5px;
+  background: #333;
+  margin: 0 5px;
+}
+
+.main_visual .slick-dots li::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 100%;
+  background: #f00;
+}
+
+.main_visual .slick-dots li.slick-active::after {
+  width: 100%;
+  transition: 3s;
+}
+
+.main_visual .slick-dots button {
+  display: none;
+}
+
+.main_link {
+}
+
+.main_link .container {
+  gap: 30px;
+}
+
+.main_link .text {
+  position: absolute;
+  text-align: center;
+  margin: 50px 0 0 0;
+  display: block;
+  width: 100%;
+}
+
+.main_link h2 {
+  letter-spacing: 15px;
+  font-size: 20px;
+  font-weight: 100;
+  margin: 60px 0 20px 0;
+}
+
+.main_link .text > p {
+  font-size: 14px;
+  font-weight: lighter;
+  margin: 20px 0 0 0;
+  letter-spacing: 4px;
+}
+
+.main_link figure {
+  margin: 200px 0;
+  transition: 0.5s;
+}
+
+.main_link .inbox {
+  overflow: hidden;
+}
+
+.main_link .inbox img {
+  transition: 0.5s;
+}
+
+.main_link .inbox img:hover {
+  transform: scale(1.5);
+}
+
+.main_link figure p {
+  text-align: center;
+  padding: 20px;
+}
+
+.main_link img {
+  width: 100%;
+}
+
+.main_link .link {
+  width: 60px;
+  text-align: center;
+  margin: 0 auto;
+  background: transparent;
+  padding: 7px 30px;
+  border: 1px solid #333;
+}
+.main_link .link:hover {
+  color: #fff;
+  background: #f00;
+}
+/*  
+.main_link .itm01 {
+  opacity: 0;
+  transition: 0.4s;
+  transform: translateY(50%);
+}
+
+main:hover .itm01 {
+  opacity: 1;
+  transform: translateY(0);
+}
+.main_link .itm02 {
+  opacity: 0;
+  transition: 0.4s 0.5s;
+  transform: translateY(60%);
+}
+
+main:hover .itm02 {
+  opacity: 1;
+  transform: translateY(0);
+}
+.main_link .itm03 {
+  opacity: 0;
+  transition: 0.4s 1s;
+  transform: translateY(50%);
+}
+
+main:hover .itm03 {
+  opacity: 1;
+  transform: translateY(0);
+}
+*/

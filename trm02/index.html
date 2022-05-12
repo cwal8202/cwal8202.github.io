@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/slick.css" />
     <link rel="stylesheet" href="./css/jquery.mb.YTPlayer.min.css" />
+    <link rel="stylesheet" href="./css/mbtn.css" />
     <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
@@ -41,6 +42,11 @@
                 <li><a href="">특별한 솔리테어</a></li>
               </ul>
             </nav>
+            <button class="hamburger mbtn hamburger--collapse" type="button">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button>
             <form action="javascript:formSubmit()" id="searchForm">
               <!-- input은 검색창 -->
               <input type="text" />
@@ -147,7 +153,13 @@
         <section class="movie">
           <div class="container">
             <figure>
-              <video src="./img/movie.mp4" muted autoplay loop></video>
+              <video
+                src="./img/movie.mp4"
+                muted
+                autoplay
+                loop
+                playsinline
+              ></video>
             </figure>
             <div class="dec">
               <h2>JEWELLERY COLLECTION</h2>
@@ -234,27 +246,37 @@
                 <li class="on">
                   <dl>
                     <dd>
-                      <strong
-                        >부산 부산진구 중앙대로692번길 45-7 부산 부산진구
-                        중앙대로부산 부산진구 중앙대로부산 부산진구
-                        중앙대로asdasdsda</strong
-                      ><span>2022.12.24</span>
+                      <a href="#!">
+                        <strong
+                          >부산 부산진구 중앙대로692번길 45-7 부산 부산진구
+                          중앙대로부산 부산진구 중앙대로부산 부산진구
+                          중앙대로asdasdsda</strong
+                        ><span>2022.12.24</span></a
+                      >
                     </dd>
                     <dd>
-                      <strong>부산 부산진구 중앙대로692번길 45-7</strong
-                      ><span>2022.12.24</span>
+                      <a href="#!">
+                        <strong>부산 부산진구 중앙대로692번길 45-7</strong
+                        ><span>2022.12.24</span></a
+                      >
                     </dd>
                     <dd>
-                      <strong>부산 부산진구 중앙대로692번길 45-7</strong
-                      ><span>2022.12.24</span>
+                      <a href="">
+                        <strong>부산 부산진구 중앙대로692번길 45-7</strong
+                        ><span>2022.12.24</span></a
+                      >
                     </dd>
                     <dd>
-                      <strong>부산 부산진구 중앙대로692번길 45-7</strong
-                      ><span>2022.12.24</span>
+                      <a href="">
+                        <strong>부산 부산진구 중앙대로692번길 45-7</strong
+                        ><span>2022.12.24</span></a
+                      >
                     </dd>
                     <dd>
-                      <strong>부산 부산진구 중앙대로692번길 45-7</strong
-                      ><span>2022.12.24</span>
+                      <a href="">
+                        <strong>부산 부산진구 중앙대로692번길 45-7</strong
+                        ><span>2022.12.24</span>
+                      </a>
                     </dd>
                   </dl>
                 </li>
@@ -280,9 +302,9 @@
             <li><a href=""> 그라프 하우스 소개</a></li>
           </ul>
           <div class="sns">
-            <a href=""><i class="xi-kakaotalk"></i></a>
-            <a href=""><i class="xi-facebook"></i></a>
-            <a href=""><i class="xi-instagram"></i></a>
+            <a href="#!"><i class="xi-kakaotalk"></i></a>
+            <a href="#!"><i class="xi-facebook"></i></a>
+            <a href="#!"><i class="xi-instagram"></i></a>
           </div>
         </div>
         <hr />

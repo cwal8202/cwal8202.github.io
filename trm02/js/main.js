@@ -54,10 +54,20 @@ $(function () {
 
   $(".product_slider").slick({
     slidesToShow: 5,
-    centerMode: true,
+    centerMode: false,
     arrows: false,
     dots: true,
     autoplay: true,
+
+    //반응형일때 슬라이드 1개씩 나오게 바꿈//
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   });
 
   $(".product_list i.s_left").on("click", function () {
@@ -78,6 +88,11 @@ $(function () {
   $(".footer #link").on("change", function () {
     var lik = $(this).val();
     if (lik) window.open(lik);
+  });
+
+  $(".mbtn").on("click", function () {
+    $("nav").toggleClass("on");
+    $(this).toggleClass("is-active");
   });
 
   ///////////////////////////////////////////////////////////
